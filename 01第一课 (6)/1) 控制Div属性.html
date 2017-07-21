@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>1) 控制Div属性</title>
+    <style type="text/css">
+        .outbox{
+            width:500px;
+            margin: 0 auto;
+            text-align:center;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background:black;
+            margin: 10px auto;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="outbox">
+        <input type="button" value="变宽">
+        <input type="button" value="变高">
+        <input type="button" value="变色">
+        <input type="button" value="隐藏">
+        <input type="button" value="重置">
+        <div id="box"></div>
+    </div>
+</body>
+<script>
+window.onload = function() {
+
+    var box = document.getElementById('box');
+    var input = document.getElementsByTagName('input');
+    input[0].addEventListener('click',function(){
+        box.style.width = '200px';
+    })
+    input[1].addEventListener('click',function(){
+        box.style.height = '200px';
+    })
+    input[2].addEventListener('click',function(){
+        box.style.background = 'red';
+    })
+    input[3].addEventListener('click',function(){
+        box.style.display = 'none';
+    })
+    input[4].addEventListener('click',function(){
+        box.style.width = '100px';
+        box.style.height = '100px';
+        box.style.background = 'black';
+        box.style.display = 'block';
+
+    })
+}
+</script>
+</html>

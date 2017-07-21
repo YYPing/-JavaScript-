@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>2) 网页换肤</title>
+    <link rel="stylesheet" type="text/css" href="2/2.css">
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding:0;
+        }
+        a:link, a:visited {
+            color:#fff;
+            text-decoration: none;
+            line-height:25px;
+        }
+        .outbox{
+            width:600px;
+            margin: 0 auto;
+            text-align:center;
+        }
+        ul li{
+            list-style: none;
+        }
+        ul{
+            margin: 10px 0;
+        }
+        #color{
+            height:14px;
+            margin: 10px auto;
+            display: block;
+        }
+        #color li{
+            width: 6px;
+            height: 6px;
+            float: left;
+            margin-right:10px;
+            border-width:4px;
+            border-style: solid;
+            cursor: pointer;
+            background:#fff;
+        }
+
+        #nav {
+            height: 25px;
+        }
+        #nav li{
+            height: 25px;
+            width: 80px;
+            border:1px solid #fff;
+            float: left;
+            color:#fff;
+            border-right:none;
+        }
+        #nav li.last{
+            border-right:1px solid #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outbox">
+        <ul id="color">
+            <li class='red'></li>
+            <li class='green'></li>
+            <li class='black'></li>
+        </ul>
+        <ul id="nav">
+            <li>
+                <a href="javascript:;">新闻</a>
+            </li>
+            <li>
+                <a href="javascript:;">娱乐</a>
+            </li>
+            <li>
+                <a href="javascript:;">体育</a>
+            </li>
+            <li>
+                <a href="javascript:;">电影</a>
+            </li>
+            <li>
+                <a href="javascript:;">音乐</a>
+            </li>
+            <li class="last">
+                <a href="javascript:;">旅游</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    var ul = document.getElementById('color');
+    var btnColor = ul.getElementsByTagName('li');
+    var link = document.getElementsByTagName('link');
+        for (var i = 0; i < btnColor.length; i++) {
+            (function(e){  //自执行函数实时把i传入e
+                btnColor[e].onclick=function(){  //  通过传入的e获取到哪个按钮发生了点击事件
+                     //弹出e（此处e为i实时对应值）
+                     num = (parseInt(e)+1)
+                    link[0].href = '2/'+ num +'.css';
+                }
+            })(i)
+        }
+
+</script>
+</html>

@@ -1,0 +1,21 @@
+body {
+    background: #A3C5A8;
+}
+#nav li{
+    background:green;
+}
+#color li{
+    background:#fff;
+}
+#color li.red{
+    border-color:red;
+    background:red;
+}
+#color li.green{
+    border-color:green;
+}
+#color li.black{
+    border-color:black;
+    background:black;
+
+}

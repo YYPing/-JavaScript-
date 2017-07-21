@@ -1,0 +1,20 @@
+body {
+    background: #ccc;
+}
+#nav li{
+    background:black;
+}
+#color li{
+    background:#fff;
+}
+#color li.red{
+    border-color:red;
+    background:red;
+}
+#color li.green{
+    border-color:green;
+    background:green;
+}
+#color li.black{
+    border-color:black;
+}
