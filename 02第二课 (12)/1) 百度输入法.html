@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>1)百度输入法</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .outbox{
+            width:70px;
+            margin: 10px auto;
+            text-align:left;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background:black;
+            margin: 10px auto;
+        }
+        ul li{
+            list-style: none;
+        }
+        ul{
+            margin-top: 5px;
+            background: #fff;
+            border: 1px solid #9a99ff;
+            width:68px;
+            display: none;
+        }
+        ul li{
+            height: 24px;
+            width:58px;
+            padding: 0 5px;
+        }
+        ul li#close{
+            border-top:1px solid #9a99ff;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="outbox">
+        <input type="button" value="输入法">
+        <ul>
+            <li>手写</li>
+            <li>配音</li>
+            <li id="close">关闭</li>
+        </ul>
+    </div>
+</body>
+<script>
+window.onload = function() {
+    var btn = document.getElementsByTagName('input')[0];
+    var ul = document.getElementsByTagName('ul')[0];
+    var li = document.getElementsByTagName('li');
+    var num = 1;
+    var close = document.getElementById('close')
+    btn.onclick = function(){
+        if ((num%2)==1) {
+            ul.style.display = 'block';
+        }else if ((num%2)==0) {
+            ul.style.display = 'none';
+        };
+        num++;
+    }
+    close.onclick = function(){
+        ul.style.display = 'none';
+        num++;
+    }
+    for (var i = 0; i < li.length; i++) {
+
+        (function(e){
+            li[e].onmouseover = function(){
+            li[e].style.backgroundColor = '#d9e1f6';
+        }
+        li[e].onmouseout = function(){
+            li[e].style.backgroundColor = '#fff';
+        }
+        })(i);
+    };
+}
+</script>
+</html>
