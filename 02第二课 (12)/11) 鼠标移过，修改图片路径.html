@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>11) 鼠标移过，修改图片路径</title>
+    <style type="text/css">
+        body{
+            background:black;
+        }
+        ul,li{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        ul{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            margin:-130px 0 0 -104px;
+            background:#fff;
+            padding:8px 8px 10px 10px;
+            width:208px;
+            height:260px;
+            border-radius:5px;
+        }
+        ul li{
+            margin:2px 2px 0 0;
+            width:50px;
+            height:50px;
+            float: left;
+        }
+        ul li img{
+            border-radius:2px;
+        }
+        ul li.first{
+            width:154px;
+            height:154px;
+        }
+    </style>
+</head>
+<body>
+<ul id="box">
+    <li class="first"><img src="http://fgm.cc/learn/lesson2/img/big_7.jpg"><div style="display: none;"></div></li>
+    <li><a href="javascript:;"><img src="img/small_1.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_2.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_3.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_4.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_5.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_6.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_7.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_8.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_9.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_10.jpg"></a></li>
+    <li><a href="javascript:;"><img src="img/small_11.jpg"></a></li>
+</ul>
+</body>
+<script>
+    window.onload = function(){
+        var boxLi = document.getElementById('box').getElementsByTagName('li');
+        var bigImg = boxLi[0].getElementsByTagName('img')[0];
+        for (var i = 1; i < boxLi.length; i++) {
+            // boxLi[i].getElementsByTagName('img')[0] = this.getElementsByTagName('img')[0].attributes('src')
+            boxLi[i].onmouseover = function(){
+                boxLi[0].getElementsByTagName('img')[0].setAttribute("src",this.getElementsByTagName('img')[0].attributes["src"].nodeValue.replace('small','big'));
+            }
+        };
+        var smallImg = boxLi[0].getElementsByTagName('img')[0];
+    }
+</script>
+</html>
