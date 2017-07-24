@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>6) 判断数字是否为两位数</title>
+    <style type="text/css" media="screen">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .outbox{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            margin:-20px 0 0 -150px;
+            width:420px;
+            text-align:left;
+        }
+        input{
+            width:100px;
+        }
+        span{
+            width:20px;
+            color: green;
+            padding: 10px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+<div class="outbox">
+    <input type="number" name="" value="" placeholder="">
+    <input type="button" name="" value="是否为两位数">
+</div>
+</body>
+<script>
+    var input = document.getElementsByTagName('input');
+    input[0].onkeyup = function(){
+        this.value = this.value
+    };
+    input[1].onclick =function(){
+        if ((10<=parseInt(input[0].value)) && (parseInt(input[0].value)<=99) ) {
+            alert('是两位数');
+        } else{
+            alert('是' + input[0].value.length + '位数');
+        };
+    }
+</script>
+</html>

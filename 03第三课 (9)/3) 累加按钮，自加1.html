@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>3) 累加按钮，自加1</title>
+    <style type="text/css" media="screen">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .outbox{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            margin:-20px 0 0 -150px;
+            width:300px;
+            /* margin: 10px auto; */
+            text-align:left;
+        }
+        input{
+            width:50px;
+        }
+        span{
+            width:20px;
+            color: green;
+            padding: 10px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="outbox">
+        <input type="button" name="" value="0">
+    </div>
+
+</body>
+    <script>
+        var input = document.getElementsByTagName('input')[0];
+        var num = 0;
+        input.onclick =function(){
+            num++;
+            alert(num);
+            input.value = num
+        }
+    </script>
+</html>

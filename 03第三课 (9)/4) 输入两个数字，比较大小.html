@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>4) 输入两个数字，比较大小</title>
+    <style type="text/css" media="screen">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .outbox{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            margin:-20px 0 0 -150px;
+            width:420px;
+            text-align:left;
+        }
+        input{
+            width:100px;
+        }
+        span{
+            width:20px;
+            color: green;
+            padding: 10px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+<div class="outbox">
+    <input type="number" name="" value="" placeholder=""><span>vs</span>
+    <input type="number" name="" value="" placeholder="">
+    <input type="button" name="" value="最大的数是 »"><span>?</span>
+</div>
+</body>
+<script>
+    var input = document.getElementsByTagName('input');
+    var span = document.getElementsByTagName('span')[1];
+    input[0].onkeyup = function(){
+        this.value = this.value
+    };
+    input[1].onkeyup = function(){
+        this.value = this.value
+    };
+    input[2].onclick =function(){
+        if (input[0].value==''||input[1].value=='') {
+            alert('请输入数值');
+        } else{
+            (parseInt(input[0].value) - parseInt(input[1].value)>0) ? span.innerHTML=parseInt(input[0].value) : span.innerHTML=parseInt(input[1].value)
+        };
+        console.log(span);
+    }
+</script>
+</html>
