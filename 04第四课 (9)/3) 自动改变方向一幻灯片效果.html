@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>2) 自动播放一幻灯片效果</title>
+    <title>3) 自动改变方向一幻灯片效果</title>
     <style>
         body,div,ul,li{margin:0;padding:0;}
         ul{list-style-type:none;}
@@ -62,6 +62,7 @@
     var timer = null;
     function animation(obj,start,destination,time){
         pace = parseInt(destination) / parseInt(time)
+        // start = start !== undefined ? start : obj.style.opacity
 
         if (start !== undefined ) {
             obj.style.opacity = start
@@ -71,21 +72,13 @@
         clearInterval(timer);
         timer = setInterval(function(){
             if ((start + pace) > destination) {
-
                 obj.style.opacity = destination
-            console.log("2");
-
             }else if ((start + pace) == destination) {
-
                 obj.style.opacity = destination
-            console.log("3");
-
             }else{
                 var temp = parseFloat(window.getComputedStyle(obj,null)['opacity']);
                 obj.style.opacity = temp+pace
-
             }
-            // console.log("1");
         },time)
     }
     window.onload = function(){
@@ -96,7 +89,8 @@
         var listLi1 = get.byTagName('li',count);
         // console.log(listLi1);
         var n = 5
-        go =setInterval(run,1000)
+        var flag = true
+        go = setInterval(run,1000)
         // animation(box,0.3,1,55)
         // console.log(count);
         function run(){
@@ -107,15 +101,26 @@
             // listLi[n%5].style.opacity = 1
             animation(listLi[n%5],0,1,25)
             listLi1[n%5].setAttribute('class','current')
-            n++
+            if (n>=9) {
+                flag = false;
+            } else if(n<=5){
+                flag = true;
+            };
+            if (flag) {
+                n++
+            } else {
+                n--
+            };
+            console.log(n);
         }
+
         for (var i = 0; i < listLi1.length; i++) {
             (function(e){
                 listLi1[e].onmouseover = function(){
                     n = e+5;
                     clearInterval(go);
                     run()
-                    console.log(n);
+                    // console.log(n);
                 }
                 listLi1[e].onmouseout = function(){
                     // n = i+5;
@@ -123,8 +128,8 @@
                     // run()
                 }
             })(i)
-
         };
+
 
 
     }
