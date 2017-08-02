@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>3) 用户按下键盘，显示keyCode</title>
+</head>
+<body>
+3) 用户按下键盘，显示keyCode
+<p></p>
+</body>
+<script>
+    var p = document.getElementsByTagName('p')[0];
+    document.onkeyup = function(){
+        var event = event || window.event;
+        p.innerHTML = event.keyCode
+    }
+</script>
+</html>

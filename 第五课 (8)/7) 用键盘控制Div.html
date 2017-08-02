@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>7) 用键盘控制Div</title>
+</head>
+<style type="text/css">
+html,body{overflow:hidden;}
+body{margin:0;padding:0;}
+pre{color:green;padding:10px 15px;background:#f0f0f0;border:1px dotted #333;font:12px/1.5 Courier New;margin:12px;}
+span{color:#999;}
+#box{position:absolute;top:50px;left:300px;width:100px;height:100px;background:red;}
+</style>
+<body>
+    <pre>
+        红色方块为键盘操作区域，您可以进行如下操作：
+
+        上：↑ 下：↓ 左：← 右：→
+
+        Ctrl + 1 : 背景变为绿色
+        Ctrl + 2 : 背景变为黄色
+        Ctrl + 3 : 背景变为蓝色
+        Ctrl + ↑ : 放大
+        Ctrl + ↓ : 缩小
+    </pre>
+    <div id="box"></div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    var onLeft = onRight = onTop = onLeft = onDown = false;
+    setInterval(function(){
+        if(onLeft){
+            box.style.left = box.offsetLeft - 10 + 'px';
+        }
+        if(onRight){
+            box.style.left = box.offsetLeft + 10 + 'px';
+        }
+        if(onTop){
+            box.style.top = box.offsetTop - 10 + 'px';
+        }
+        if(onDown){
+            box.style.top = box.offsetTop + 10 + 'px';
+        }
+    },30)
+
+    document.onkeydown = function(event){
+        var event = event || window.event;
+        switch(event.keyCode){
+            case 37:
+                onLeft = true;
+                break;
+            case 38:
+                onTop = true;
+                break;
+            case 39:
+                onRight = true;
+                break;
+            case 40:
+                onDown = true;
+                break;
+        }
+    }
+</script>
+</html>
